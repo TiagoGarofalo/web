@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./principal.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <ui:define name="div_principal">
+
+        <h:form id="form_cadastro">
+            <p:messages id="mens" />
+            <p:panelGrid columns="2" layout="grid">
+                <p:outputLabel for="questao" value="Pergunta:" />
+                <p:inputTextarea id="questao" required="true" requiredMessage="Pergunta é obrigatorio" value="#{jogoC.questao.pergunta}" cols="30" />
+
+                <p:outputLabel for="alt_1" value="Alternativa correta:"/>
+                <p:inputTextarea id="alt_1" required="true" requiredMessage="Alternativa 1 é obrigatorio" value="#{jogoC.questao.resposta}" cols="30"/>
+                
+                 <p:outputLabel for="alt_2" value="Alternativa correta:"/>
+                <p:inputTextarea id="alt_2" required="true" requiredMessage="Alternativa 2 é obrigatorio" value="#{jogoC.alt1}" cols="30" />
+                
+                <p:outputLabel for="alt_3" value="Alternativa correta:"/>
+                <p:inputTextarea id="alt_3" required="true" requiredMessage="Alternativa 2 é obrigatorio" value="#{jogoC.alt2}" cols="30" />
+
+                    <!--simular primeira coluna-->
+                    <p:commandButton value="Salvar" action="#{jogoC.salvarQuestao()}" update="@form" />
+
+            </p:panelGrid>
+        </h:form>
+    </ui:define>
+</ui:composition>
